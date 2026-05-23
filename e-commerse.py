@@ -76,6 +76,37 @@ print(f"Top City With lowest revenue is: {city_sell.idxmin()}\n")
 print(f"Top City With Most Demand is: {city_order.idxmax()}")
 print(f"Top City With lowest Demand is: {city_order.idxmin()}")
 
+# Visualization:-
+
+plt.bar(sell.index,sell.values,color='r')
+plt.title("Top Selling Products")
+plt.xlabel("Product")
+plt.ylabel("Quantity")
+plt.xticks(rotation=45)
+plt.show()
+
+plt.bar(city_sell.index,city_sell.values,color='b')
+plt.title("Top Selling Products")
+plt.xlabel("City")
+plt.ylabel("Revenue")
+plt.xticks(rotation=45)
+plt.show()
+
+cate_revenue=df.groupby("Category")["revenue"].sum()
+plt.pie(cate_revenue.values,labels=cate_revenue.index,autopct="%1.1f%%")
+plt.show()
+
+revenuee=revenue.sort_values(ascending=False).head(5)
+plt.barh(revenuee.index,revenuee.values,color='y')
+plt.title("Highest Revenue Products")
+plt.xlabel("Revenue")
+plt.ylabel("Products")
+plt.show()
+
+
+
+
+
 
 
 
